@@ -1,0 +1,21 @@
+{
+  "name": "involve",
+  "version": "0.0.0",
+  "description": "pull all of your package.json (dev)deps into an object",
+  "main": "involve.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/tmpvar/involve.git"
+  },
+  "keywords": [
+    "require"
+  ],
+  "author": "Elijah Insua <tmpvar@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tmpvar/involve/issues"
+  }
+}
