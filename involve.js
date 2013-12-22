@@ -13,12 +13,11 @@ module.exports = function(packagejson) {
 
       if (version.match(/\//)) {
         dir = path.join(base, version);
-        console.log(dir);
       }
 
       obj.dependencies[key] = require(dir);
     });
   }
-console.log(obj);
+
   return obj;
 }
