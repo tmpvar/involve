@@ -1,17 +1,24 @@
-
 var path = require('path');
 
 module.exports = function(packagejson) {
   var obj = require(packagejson);
+  var base = path.dirname(packagejson);
+  module.paths.push(base);
+  module.paths.push(path.join(base, 'node_modules'));
 
-  module.paths.push(path.join(path.dirname(packagejson), 'node_modules'));
-
-  var ret = {};
   if (obj.dependencies) {
     Object.keys(obj.dependencies).forEach(function(key) {
-      ret[key] = require(key);
+      var version = obj.dependencies[key];
+      var dir = key;
+
+      if (version.match(/\//)) {
+        dir = path.join(base, version);
+        console.log(dir);
+      }
+
+      obj.dependencies[key] = require(dir);
     });
   }
-
-  return ret;
+console.log(obj);
+  return obj;
 }
